@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>JinP Official Main Page</title>
+    
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            base: '#0a0a0c',
+                            surface: '#121216',
+                            card: '#18181f',
+                            border: '#262630'
+                        },
+                        brand: {
+                            red: '#e63946',
+                            crimson: '#ff2a4b',
+                            glow: 'rgba(230, 57, 70, 0.15)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262630;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff2a4b;
+        }
+
+        /* Ambient Glow Effect */
+        .ambient-glow {
+            background: radial-gradient(circle at 50% -20%, rgba(230, 57, 70, 0.18), transparent 70%);
+        }
+
+        /* Glassmorphism Styling */
+        .glass-card {
+            background: rgba(24, 24, 31, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            border-color: rgba(230, 57, 70, 0.4);
+            box-shadow: 0 0 25px rgba(230, 57, 70, 0.12);
+        }
+
+        /* Cordova safe area padding support for mobile notches */
+        body {
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Allow text selection inside content text */
+        p, h1, h2, h3, span {
+            user-select: text;
+            -webkit-user-select: text;
+        }
+    </style>
+</head>
+<body class="bg-dark-base text-gray-200 font-sans min-h-full flex flex-col justify-between antialiased selection:bg-brand-red selection:text-white">
+
+    
+    <div class="fixed inset-0 ambient-glow pointer-events-none z-0"></div>
+
+    
+    <header class="sticky top-0 z-50 bg-dark-base/80 backdrop-blur-md border-b border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 rounded-lg bg-dark-card border border-brand-red/40 flex items-center justify-center group-hover:border-brand-crimson transition-colors">
+                    <span id="site-logo-initial" class="text-brand-crimson font-bold text-lg">P</span>
+                </div>
+                <span id="site-logo-name" class="font-bold text-lg tracking-wider text-white">YOUR NAME <span class="text-brand-crimson">.</span></span>
+            </a>
+
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#projects" class="hover:text-white transition-colors">PROJECTS</a>
+                <a href="#skills" class="hover:text-white transition-colors">SKILLS</a>
+                <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
+                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+            </nav>
+
+            
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="px-5 py-2 text-sm font-semibold rounded-md bg-brand-red text-white hover:bg-brand-crimson transition-all duration-200 shadow-lg shadow-brand-red/20 active:scale-95">
+                    LET'S TALK
+                </a>
+            </div>
+
+            
+            <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-dark-card focus:outline-none">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-surface border-b border-dark-border px-4 pt-3 pb-6 space-y-3">
+            <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">PROJECTS</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">SKILLS</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">ABOUT</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">CONTACT</a>
+            <div class="pt-2">
+                <a href="#contact" class="block w-full text-center px-5 py-2.5 text-sm font-semibold rounded-md bg-brand-red text-white hover:bg-brand-crimson transition-colors">
+                    LET'S TALK
+                </a>
+            </div>
+        </div>
+    </header>
+
+    
+    <main class="flex-grow z-10">
+
+        
+        <section class="relative min-h-[calc(85vh-4rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
+            <div class="max-w-4xl mx-auto text-center space-y-8">
+                
+                
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-card border border-brand-red/30 text-xs font-semibold text-brand-crimson tracking-wide uppercase">
+                    <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
+                    <span id="hero-badge">PROJECT PORTFOLIO & HUB</span>
+                </div>
+
+                
+                <h1 id="hero-title" class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight">
+                    BUILDING APPS & <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-brand-crimson">
+                        DIGITAL EXPERIENCES
+                    </span>
+                </h1>
+
+                
+                <p id="hero-bio" class="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 leading-relaxed uppercase">
+                    WELCOME TO MY PROJECT HUB. HERE YOU CAN EXPLORE MY COLLECTION OF MOBILE APPLICATIONS, WEB TOOLS, GAMES, AND OPEN-SOURCE SOFTWARE.
+                </p>
+
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-brand-red hover:bg-brand-crimson text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-brand-red/25 active:scale-95 text-center">
+                        EXPLORE PROJECTS
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-dark-card hover:bg-dark-border text-gray-200 border border-dark-border font-semibold text-base transition-all duration-200 text-center">
+                        GET IN TOUCH
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="border-y border-dark-border/80 bg-dark-surface/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4">
+                    <p id="stat-projects-count" class="text-3xl sm:text-4xl font-extrabold text-white">12+</p>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wider">PROJECTS BUILT</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-crimson">100%</p>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wider">RESPONSIVE & MOBILE</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white">5+</p>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wider">CATEGORIES</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-crimson">24/7</p>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1 uppercase tracking-wider">UPTIME & APPS</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">FEATURED PROJECTS</h2>
+                <p class="text-gray-400 text-sm sm:text-base">SELECT A CATEGORY TO FILTER MY LATEST WORKS</p>
+            </div>
+
+            
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-brand-red text-white shadow-md shadow-brand-red/20" data-filter="all">
+                    ALL PROJECTS
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="mobile">
+                    MOBILE APPS
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="web">
+                    WEB APPS
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="utility">
+                    UTILITIES
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="games">
+                    GAMES
+                </button>
+            </div>
+
+            
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                
+                <div class="project-card glass-card rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between" data-category="mobile">
+                    <div>
+                        <div class="h-48 bg-dark-surface border-b border-dark-border relative flex items-center justify-center group overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10 opacity-80"></div>
+                            <span class="text-xs font-mono text-gray-500 z-20 uppercase tracking-widest">[ PROJECT PREVIEW ]</span>
+                            <span class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded bg-brand-red/20 border border-brand-red/40 text-brand-crimson text-[10px] font-bold uppercase">MOBILE APP</span>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <h3 class="text-xl font-bold text-white">PROJECT TITLE 1</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                SHORT DESCRIPTION OF PROJECT 1. EXPLAIN THE MAIN PURPOSE, PURPOSE OF THE MOBILE APP, OR USEFULNESS.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">CORDOVA</span>
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">JS</span>
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">TAILWIND</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
+                        <a href="#" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">LAUNCH APP &rarr;</a>
+                        <a href="#" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
+                    </div>
+                </div>
+
+                
+                <div class="project-card glass-card rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between" data-category="web">
+                    <div>
+                        <div class="h-48 bg-dark-surface border-b border-dark-border relative flex items-center justify-center group overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10 opacity-80"></div>
+                            <span class="text-xs font-mono text-gray-500 z-20 uppercase tracking-widest">[ PROJECT PREVIEW ]</span>
+                            <span class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded bg-blue-500/20 border border-blue-500/40 text-blue-400 text-[10px] font-bold uppercase">WEB APP</span>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <h3 class="text-xl font-bold text-white">PROJECT TITLE 2</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                SHORT DESCRIPTION OF PROJECT 2. EXPLAIN THE MAIN PURPOSE, WEB APPLICATION FUNCTIONALITY, OR USER UTILITY.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">CSS3</span>
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">JAVASCRIPT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
+                        <a href="#" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">VISIT WEBSITE &rarr;</a>
+                        <a href="#" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
+                    </div>
+                </div>
+
+                
+                <div class="project-card glass-card rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between" data-category="utility">
+                    <div>
+                        <div class="h-48 bg-dark-surface border-b border-dark-border relative flex items-center justify-center group overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10 opacity-80"></div>
+                            <span class="text-xs font-mono text-gray-500 z-20 uppercase tracking-widest">[ PROJECT PREVIEW ]</span>
+                            <span class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded bg-purple-500/20 border border-purple-500/40 text-purple-400 text-[10px] font-bold uppercase">UTILITY</span>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <h3 class="text-xl font-bold text-white">PROJECT TITLE 3</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed">
+                                SHORT DESCRIPTION OF PROJECT 3. EXPLAIN THE MAIN PURPOSE OR USEFUL TOOL CAPABILITIES.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">INDEXEDDB</span>
+                                <span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">JS TOOLKIT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
+                        <a href="#" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">OPEN TOOL &rarr;</a>
+                        <a href="#" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-dark-border/60">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">WHAT I USE</h2>
+                <p class="text-gray-400 text-sm sm:text-base">TECHNOLOGIES & TOOLS USED ACROSS MY PROJECTS</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                <div class="glass-card p-5 rounded-xl text-center space-y-2">
+                    <div class="text-brand-crimson font-bold text-lg">HTML5</div>
+                    <div class="text-xs text-gray-400">STRUCTURE</div>
+                </div>
+                <div class="glass-card p-5 rounded-xl text-center space-y-2">
+                    <div class="text-brand-crimson font-bold text-lg">CSS3 / TAILWIND</div>
+                    <div class="text-xs text-gray-400">STYLING</div>
+                </div>
+                <div class="glass-card p-5 rounded-xl text-center space-y-2">
+                    <div class="text-brand-crimson font-bold text-lg">JAVASCRIPT</div>
+                    <div class="text-xs text-gray-400">LOGIC</div>
+                </div>
+                <div class="glass-card p-5 rounded-xl text-center space-y-2">
+                    <div class="text-brand-crimson font-bold text-lg">CORDOVA</div>
+                    <div class="text-xs text-gray-400">MOBILE WRAPPER</div>
+                </div>
+                <div class="glass-card p-5 rounded-xl text-center space-y-2">
+                    <div class="text-brand-crimson font-bold text-lg">INDEXEDDB</div>
+                    <div class="text-xs text-gray-400">LOCAL DATA</div>
+                </div>
+                <div class="glass-card p-5 rounded-xl text-center space-y-2">
+                    <div class="text-brand-crimson font-bold text-lg">GIT / GITHUB</div>
+                    <div class="text-xs text-gray-400">VERSION CONTROL</div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-dark-border/60">
+            <div class="glass-card rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="max-w-3xl space-y-6">
+                    <span class="text-brand-crimson text-xs font-bold tracking-widest uppercase">ABOUT THE DEVELOPER</span>
+                    <h2 id="about-title" class="text-2xl sm:text-4xl font-extrabold text-white">PASSIONATE ABOUT CREATING USEFUL & COMPACT DIGITAL PRODUCTS</h2>
+                    <p id="about-desc" class="text-gray-400 leading-relaxed text-sm sm:text-base">
+                        DESCRIPTION HERE. WRITE A SHORT PARAGRAPH ABOUT YOUR PHILOSOPHY, DEV JOURNEY, AND WHY YOU LOVE BUILDING WEBSITES AND APACHE CORDOVA MOBILE APPS.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="relative rounded-2xl bg-gradient-to-b from-dark-card to-dark-surface border border-brand-red/30 p-8 sm:p-12 text-center overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <h2 id="contact-heading" class="text-2xl sm:text-4xl font-extrabold text-white mb-4">HAVE A PROJECT OR QUESTION?</h2>
+                <p id="contact-subtext" class="max-w-xl mx-auto text-gray-400 text-sm sm:text-base mb-8">
+                    REACH OUT FOR COLLABORATIONS, INQUIRIES, OR FEEDBACK ON MY PROJECTS.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a id="contact-email-btn" href="mailto:your.email@example.com" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-brand-red hover:bg-brand-crimson text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-brand-red/30 active:scale-95">
+                        SEND EMAIL
+                    </a>
+                    <a id="contact-github-btn" href="#" target="_blank" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-dark-card hover:bg-dark-border text-gray-200 border border-dark-border font-semibold text-base transition-all duration-200">
+                        GITHUB PROFILE
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <footer class="bg-dark-surface border-t border-dark-border/80 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-dark-card border border-brand-red/40 flex items-center justify-center text-brand-crimson font-bold text-xs">
+                    <span id="footer-logo-initial">P</span>
+                </div>
+                <span id="footer-logo-name" class="font-bold text-sm text-white tracking-wider">YOUR NAME <span class="text-brand-crimson">.</span></span>
+            </div>
+            
+            <div class="flex items-center gap-6 text-xs text-gray-400">
+                <a href="#projects" class="hover:text-white transition-colors">PROJECTS</a>
+                <a href="#skills" class="hover:text-white transition-colors">SKILLS</a>
+                <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
+                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+            </div>
+
+            <p id="footer-copyright" class="text-xs text-gray-500">
+                &copy; 2026 YOUR NAME. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </footer>
+
+    
+    <script src="cordova.js"></script>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrMWis868II7GgGiG2MKvUVNK9A7Z4ji4",
+            authDomain: "landing-page-pj.firebaseapp.com",
+            projectId: "landing-page-pj",
+            storageBucket: "landing-page-pj.firebasestorage.app",
+            messagingSenderId: "792475217871",
+            appId: "1:792475217871:web:d84b36bb2bc3ee90b86cba"
+        };
+        
+        
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        console.log("Firebase initialized successfully!");
+
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIconOpen.classList.add('hidden');
+                    menuIconClose.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                }
+            });
+        }
+
+        
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
+            });
+        });
+
+        
+        let currentFilter = 'all';
+        function setupFilterButtons() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-brand-red', 'text-white', 'shadow-md', 'shadow-brand-red/20', 'active');
+                        b.classList.add('bg-dark-card', 'text-gray-400', 'border', 'border-dark-border');
+                    });
+
+                    btn.classList.remove('bg-dark-card', 'text-gray-400', 'border', 'border-dark-border');
+                    btn.classList.add('bg-brand-red', 'text-white', 'shadow-md', 'shadow-brand-red/20', 'active');
+
+                    currentFilter = btn.getAttribute('data-filter');
+                    filterProjects();
+                });
+            });
+        }
+        setupFilterButtons();
+
+        function filterProjects() {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (currentFilter === 'all' || cardCategory === currentFilter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        
+        db.collection('projects').orderBy('createdAt', 'desc').onSnapshot(snapshot => {
+            if (!snapshot.empty) {
+                const projectsGrid = document.getElementById('projects-grid');
+                projectsGrid.innerHTML = ''; 
+
+                let count = 0;
+                snapshot.forEach(doc => {
+                    count++;
+                    const p = doc.data();
+                    const category = p.category || 'web';
+                    
+                    
+                    const tagsHtml = p.tags ? p.tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">${escapeHtml(t)}</span>`).join('') : '';
+
+                    
+                    let previewBox = '';
+                    if (p.imageUrl && p.imageUrl.trim() !== '') {
+                        previewBox = `<img src="${escapeHtml(p.imageUrl)}" alt="${escapeHtml(p.title)}" class="w-full h-full object-cover">`;
+                    } else {
+                        previewBox = `
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10 opacity-80"></div>
+                            <span class="text-xs font-mono text-gray-500 z-20 uppercase tracking-widest">[ PROJECT PREVIEW ]</span>
+                        `;
+                    }
+
+                    
+                    let categoryBadgeClass = 'bg-brand-red/20 border-brand-red/40 text-brand-crimson';
+                    if (category === 'web') categoryBadgeClass = 'bg-blue-500/20 border-blue-500/40 text-blue-400';
+                    if (category === 'utility') categoryBadgeClass = 'bg-purple-500/20 border-purple-500/40 text-purple-400';
+                    if (category === 'games') categoryBadgeClass = 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400';
+
+                    const card = document.createElement('div');
+                    card.className = 'project-card glass-card rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between';
+                    card.setAttribute('data-category', category);
+
+                    card.innerHTML = `
+                        <div>
+                            <div class="h-48 bg-dark-surface border-b border-dark-border relative flex items-center justify-center group overflow-hidden">
+                                ${previewBox}
+                                <span class="absolute top-3 right-3 z-20 px-2.5 py-1 rounded border text-[10px] font-bold uppercase ${categoryBadgeClass}">${category.toUpperCase()}</span>
+                            </div>
+                            <div class="p-6 space-y-4">
+                                <h3 class="text-xl font-bold text-white">${escapeHtml(p.title)}</h3>
+                                <p class="text-sm text-gray-400 leading-relaxed">${escapeHtml(p.desc)}</p>
+                                <div class="flex flex-wrap gap-2 pt-2">${tagsHtml}</div>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
+                            <a href="${escapeHtml(p.url || '#')}" ${p.url ? 'target="_blank"' : ''} class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">LAUNCH APP &rarr;</a>
+                            ${p.sourceUrl ? `<a href="${escapeHtml(p.sourceUrl)}" target="_blank" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>` : ''}
+                        </div>
+                    `;
+
+                    projectsGrid.appendChild(card);
+                });
+
+                // Update counter
+                const countEl = document.getElementById('stat-projects-count');
+                if (countEl) countEl.textContent = count + '+';
+
+                // Apply current active category filter
+                filterProjects();
+            }
+        });
+
+        // Real-Time Sync: Fetch Site Text Settings (Name, Hero, About, Contact)
+        db.collection('settings').doc('site_info').onSnapshot(doc => {
+            if (doc.exists) {
+                const data = doc.data();
+                
+                if (data.name) {
+                    const initials = data.name.charAt(0).toUpperCase();
+                    document.getElementById('site-logo-initial').textContent = initials;
+                    document.getElementById('footer-logo-initial').textContent = initials;
+                    document.getElementById('site-logo-name').innerHTML = `${escapeHtml(data.name)} <span class="text-brand-crimson">.</span>`;
+                    document.getElementById('footer-logo-name').innerHTML = `${escapeHtml(data.name)} <span class="text-brand-crimson">.</span>`;
+                    document.getElementById('footer-copyright').innerHTML = `&copy; 2026 ${escapeHtml(data.name)}. ALL RIGHTS RESERVED.`;
+                }
+
+                if (data.heroBadge) document.getElementById('hero-badge').textContent = data.heroBadge;
+                if (data.heroTitle) document.getElementById('hero-title').innerHTML = data.heroTitle;
+                if (data.heroBio) document.getElementById('hero-bio').textContent = data.heroBio;
+
+                if (data.aboutTitle) document.getElementById('about-title').textContent = data.aboutTitle;
+                if (data.aboutDesc) document.getElementById('about-desc').textContent = data.aboutDesc;
+
+                if (data.contactHeading) document.getElementById('contact-heading').textContent = data.contactHeading;
+                if (data.contactSubtext) document.getElementById('contact-subtext').textContent = data.contactSubtext;
+                if (data.email) document.getElementById('contact-email-btn').href = 'mailto:' + data.email;
+                if (data.githubUrl) document.getElementById('contact-github-btn').href = data.githubUrl;
+            }
+        });
+
+        // Apache Cordova Device Ready Event Handler
+        document.addEventListener('deviceready', onDeviceReady, false);
+        function onDeviceReady() {
+            if (window.StatusBar) {
+                StatusBar.styleLightContent();
+                StatusBar.backgroundColorByHexString("#0a0a0c");
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+    </script>
+</body>
+</html>
