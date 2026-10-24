@@ -2,21 +2,21 @@
 <html lang="en" class="h-full scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    
+    <!-- Cordova & Mobile Responsive Viewport Setup -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <title>JinP Official Main Page</title>
     
-    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    
+    <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -94,38 +94,38 @@
 </head>
 <body class="bg-dark-base text-gray-200 font-sans min-h-full flex flex-col justify-between antialiased selection:bg-brand-red selection:text-white">
 
-    
+    <!-- Ambient Top Radial Glow Background -->
     <div class="fixed inset-0 ambient-glow pointer-events-none z-0"></div>
 
-    
+    <!-- Navigation Bar -->
     <header class="sticky top-0 z-50 bg-dark-base/80 backdrop-blur-md border-b border-dark-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             
-            
-            <a href="#" class="flex items-center gap-2 group">
+            <!-- Logo Placeholder -->
+            <a href="javascript:void(0);" onclick="playSound('logo-click.wav')" class="flex items-center gap-2 group">
                 <div class="w-8 h-8 rounded-lg bg-dark-card border border-brand-red/40 flex items-center justify-center group-hover:border-brand-crimson transition-colors">
                     <span id="site-logo-initial" class="text-brand-crimson font-bold text-lg">P</span>
                 </div>
                 <span id="site-logo-name" class="font-bold text-lg tracking-wider text-white">YOUR NAME <span class="text-brand-crimson">.</span></span>
             </a>
 
-            
+            <!-- Desktop Navigation Links -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-                <a href="#projects" class="hover:text-white transition-colors">PROJECTS</a>
-                <a href="#skills" class="hover:text-white transition-colors">SKILLS</a>
-                <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
-                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+                <a href="#projects" onclick="playSound('nav-project.wav')" class="hover:text-white transition-colors">PROJECTS</a>
+                <a href="#skills" onclick="playSound('nav-skills.wav')" class="hover:text-white transition-colors">SKILLS</a>
+                <a href="#about" onclick="playSound('nav-about.wav')" class="hover:text-white transition-colors">ABOUT</a>
+                <a href="#contact" onclick="playSound('nav-contact.wav')" class="hover:text-white transition-colors">CONTACT</a>
             </nav>
 
-            
+            <!-- Navigation Action Button -->
             <div class="hidden md:flex items-center">
-                <a href="#contact" class="px-5 py-2 text-sm font-semibold rounded-md bg-brand-red text-white hover:bg-brand-crimson transition-all duration-200 shadow-lg shadow-brand-red/20 active:scale-95">
+                <a href="#contact" onclick="playSound('cta-letstalk.wav')" class="px-5 py-2 text-sm font-semibold rounded-md bg-brand-red text-white hover:bg-brand-crimson transition-all duration-200 shadow-lg shadow-brand-red/20 active:scale-95">
                     LET'S TALK
                 </a>
             </div>
 
-            
-            <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-dark-card focus:outline-none">
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" onclick="playSound('menu-click.wav')" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-dark-card focus:outline-none">
                 <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -135,34 +135,34 @@
             </button>
         </div>
 
-        
+        <!-- Mobile Navigation Menu Drawer -->
         <div id="mobile-menu" class="hidden md:hidden bg-dark-surface border-b border-dark-border px-4 pt-3 pb-6 space-y-3">
-            <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">PROJECTS</a>
-            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">SKILLS</a>
-            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">ABOUT</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">CONTACT</a>
+            <a href="#projects" onclick="playSound('nav-click.wav')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">PROJECTS</a>
+            <a href="#skills" onclick="playSound('nav-click.wav')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">SKILLS</a>
+            <a href="#about" onclick="playSound('nav-click.wav')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">ABOUT</a>
+            <a href="#contact" onclick="playSound('nav-click.wav')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-dark-card">CONTACT</a>
             <div class="pt-2">
-                <a href="#contact" class="block w-full text-center px-5 py-2.5 text-sm font-semibold rounded-md bg-brand-red text-white hover:bg-brand-crimson transition-colors">
+                <a href="#contact" onclick="playSound('cta-letstalk.wav')" class="block w-full text-center px-5 py-2.5 text-sm font-semibold rounded-md bg-brand-red text-white hover:bg-brand-crimson transition-colors">
                     LET'S TALK
                 </a>
             </div>
         </div>
     </header>
 
-    
+    <!-- Main Content Container -->
     <main class="flex-grow z-10">
 
-        
+        <!-- Hero Section -->
         <section class="relative min-h-[calc(85vh-4rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
             <div class="max-w-4xl mx-auto text-center space-y-8">
                 
-                
+                <!-- Status / Badge -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-card border border-brand-red/30 text-xs font-semibold text-brand-crimson tracking-wide uppercase">
                     <span class="w-2 h-2 rounded-full bg-brand-crimson animate-pulse"></span>
                     <span id="hero-badge">PROJECT PORTFOLIO & HUB</span>
                 </div>
 
-                
+                <!-- Main Title -->
                 <h1 id="hero-title" class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight">
                     BUILDING APPS & <br class="hidden sm:inline">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-brand-crimson">
@@ -170,24 +170,24 @@
                     </span>
                 </h1>
 
-                
+                <!-- Bio / Intro -->
                 <p id="hero-bio" class="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 leading-relaxed uppercase">
                     WELCOME TO MY PROJECT HUB. HERE YOU CAN EXPLORE MY COLLECTION OF MOBILE APPLICATIONS, WEB TOOLS, GAMES, AND OPEN-SOURCE SOFTWARE.
                 </p>
 
-                
+                <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                    <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-brand-red hover:bg-brand-crimson text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-brand-red/25 active:scale-95 text-center">
+                    <a href="#projects" onclick="playSound('hero-explore-click.wav')" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-brand-red hover:bg-brand-crimson text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-brand-red/25 active:scale-95 text-center">
                         EXPLORE PROJECTS
                     </a>
-                    <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-dark-card hover:bg-dark-border text-gray-200 border border-dark-border font-semibold text-base transition-all duration-200 text-center">
+                    <a href="#contact" onclick="playSound('hero-contact-click.wav')" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-dark-card hover:bg-dark-border text-gray-200 border border-dark-border font-semibold text-base transition-all duration-200 text-center">
                         GET IN TOUCH
                     </a>
                 </div>
             </div>
         </section>
 
-        
+        <!-- Stats Section -->
         <section class="border-y border-dark-border/80 bg-dark-surface/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div class="p-4">
@@ -209,7 +209,7 @@
             </div>
         </section>
 
-        
+        <!-- Projects Showcase Section -->
         <section id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             
             <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
@@ -217,29 +217,29 @@
                 <p class="text-gray-400 text-sm sm:text-base">SELECT A CATEGORY TO FILTER MY LATEST WORKS</p>
             </div>
 
-            
+            <!-- Filter Buttons with Anime Voice WAV Files -->
             <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
-                <button class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-brand-red text-white shadow-md shadow-brand-red/20" data-filter="all">
+                <button onclick="playSound('filter-all.wav')" class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-brand-red text-white shadow-md shadow-brand-red/20" data-filter="all">
                     ALL PROJECTS
                 </button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="mobile">
+                <button onclick="playSound('filter-mobile.wav')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="mobile">
                     MOBILE APPS
                 </button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="web">
+                <button onclick="playSound('filter-web.wav')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="web">
                     WEB APPS
                 </button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="utility">
+                <button onclick="playSound('filter-utility.wav')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="utility">
                     UTILITIES
                 </button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="games">
+                <button onclick="playSound('filter-games.wav')" class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-dark-card hover:bg-dark-border text-gray-400 hover:text-white border border-dark-border" data-filter="games">
                     GAMES
                 </button>
             </div>
 
-            
+            <!-- Projects Grid (Syncs Live with Firestore) -->
             <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                
+                <!-- Fallback Project Card 1 (Mobile App) -->
                 <div class="project-card glass-card rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between" data-category="mobile">
                     <div>
                         <div class="h-48 bg-dark-surface border-b border-dark-border relative flex items-center justify-center group overflow-hidden">
@@ -260,12 +260,12 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
-                        <a href="#" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">LAUNCH APP &rarr;</a>
-                        <a href="#" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
+                        <a href="javascript:void(0);" onclick="playSound('launch-click.wav')" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">LAUNCH APP &rarr;</a>
+                        <a href="javascript:void(0);" onclick="playSound('source-click.wav')" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
                     </div>
                 </div>
 
-                
+                <!-- Fallback Project Card 2 (Web App) -->
                 <div class="project-card glass-card rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between" data-category="web">
                     <div>
                         <div class="h-48 bg-dark-surface border-b border-dark-border relative flex items-center justify-center group overflow-hidden">
@@ -286,12 +286,12 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
-                        <a href="#" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">VISIT WEBSITE &rarr;</a>
-                        <a href="#" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
+                        <a href="javascript:void(0);" onclick="playSound('launch-click.wav')" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">VISIT WEBSITE &rarr;</a>
+                        <a href="javascript:void(0);" onclick="playSound('source-click.wav')" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
                     </div>
                 </div>
 
-                
+                <!-- Fallback Project Card 3 (Utility) -->
                 <div class="project-card glass-card rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between" data-category="utility">
                     <div>
                         <div class="h-48 bg-dark-surface border-b border-dark-border relative flex items-center justify-center group overflow-hidden">
@@ -311,15 +311,15 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
-                        <a href="#" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">OPEN TOOL &rarr;</a>
-                        <a href="#" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
+                        <a href="javascript:void(0);" onclick="playSound('launch-click.wav')" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">OPEN TOOL &rarr;</a>
+                        <a href="javascript:void(0);" onclick="playSound('source-click.wav')" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        
+        <!-- Technology & Tools Section -->
         <section id="skills" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-dark-border/60">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
                 <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">WHAT I USE</h2>
@@ -354,7 +354,7 @@
             </div>
         </section>
 
-        
+        <!-- About Section -->
         <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-dark-border/60">
             <div class="glass-card rounded-2xl p-8 sm:p-12 relative overflow-hidden">
                 <div class="max-w-3xl space-y-6">
@@ -367,7 +367,7 @@
             </div>
         </section>
 
-        
+        <!-- Contact Section -->
         <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div class="relative rounded-2xl bg-gradient-to-b from-dark-card to-dark-surface border border-brand-red/30 p-8 sm:p-12 text-center overflow-hidden">
                 <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -377,10 +377,10 @@
                     REACH OUT FOR COLLABORATIONS, INQUIRIES, OR FEEDBACK ON MY PROJECTS.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a id="contact-email-btn" href="mailto:your.email@example.com" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-brand-red hover:bg-brand-crimson text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-brand-red/30 active:scale-95">
+                    <a id="contact-email-btn" href="mailto:your.email@example.com" onclick="playSound('email-click.wav')" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-brand-red hover:bg-brand-crimson text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-brand-red/30 active:scale-95">
                         SEND EMAIL
                     </a>
-                    <a id="contact-github-btn" href="#" target="_blank" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-dark-card hover:bg-dark-border text-gray-200 border border-dark-border font-semibold text-base transition-all duration-200">
+                    <a id="contact-github-btn" href="javascript:void(0);" onclick="playSound('github-click.wav')" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-dark-card hover:bg-dark-border text-gray-200 border border-dark-border font-semibold text-base transition-all duration-200">
                         GITHUB PROFILE
                     </a>
                 </div>
@@ -389,7 +389,7 @@
 
     </main>
 
-    
+    <!-- Footer -->
     <footer class="bg-dark-surface border-t border-dark-border/80 z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-2">
@@ -400,10 +400,10 @@
             </div>
             
             <div class="flex items-center gap-6 text-xs text-gray-400">
-                <a href="#projects" class="hover:text-white transition-colors">PROJECTS</a>
-                <a href="#skills" class="hover:text-white transition-colors">SKILLS</a>
-                <a href="#about" class="hover:text-white transition-colors">ABOUT</a>
-                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
+                <a href="#projects" onclick="playSound('nav-click.wav')" class="hover:text-white transition-colors">PROJECTS</a>
+                <a href="#skills" onclick="playSound('nav-click.wav')" class="hover:text-white transition-colors">SKILLS</a>
+                <a href="#about" onclick="playSound('nav-click.wav')" class="hover:text-white transition-colors">ABOUT</a>
+                <a href="#contact" onclick="playSound('nav-click.wav')" class="hover:text-white transition-colors">CONTACT</a>
             </div>
 
             <p id="footer-copyright" class="text-xs text-gray-500">
@@ -412,15 +412,31 @@
         </div>
     </footer>
 
-    
+    <!-- Apache Cordova Script Import -->
     <script src="cordova.js"></script>
 
-    
+    <!-- Firebase App (Core SDK) & Firestore -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
     <script>
-        
+        // Global variable to track currently playing audio
+        let currentAudio = null;
+
+        // Sound Playback Helper Function (Non-spammable / Stops previous sound)
+        function playSound(filename) {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            currentAudio = new Audio('sounds/' + filename);
+            currentAudio.play().catch(err => {
+                console.log("Audio play error:", err);
+            });
+        }
+
+        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBrMWis868II7GgGiG2MKvUVNK9A7Z4ji4",
             authDomain: "landing-page-pj.firebaseapp.com",
@@ -430,12 +446,12 @@
             appId: "1:792475217871:web:d84b36bb2bc3ee90b86cba"
         };
         
-        
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         console.log("Firebase initialized successfully!");
 
-        
+        // Toggle Mobile Menu Drawer
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIconOpen = document.getElementById('menu-icon-open');
@@ -456,7 +472,7 @@
             });
         }
 
-        
+        // Close mobile menu when clicking internal nav links
         const navLinks = mobileMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -466,7 +482,7 @@
             });
         });
 
-        
+        // Interactive Category Filtering Handler
         let currentFilter = 'all';
         function setupFilterButtons() {
             const filterBtns = document.querySelectorAll('.filter-btn');
@@ -499,11 +515,11 @@
             });
         }
 
-        
+        // Real-Time Sync: Fetch Projects from Firestore
         db.collection('projects').orderBy('createdAt', 'desc').onSnapshot(snapshot => {
             if (!snapshot.empty) {
                 const projectsGrid = document.getElementById('projects-grid');
-                projectsGrid.innerHTML = ''; 
+                projectsGrid.innerHTML = ''; // Clear hardcoded fallback cards
 
                 let count = 0;
                 snapshot.forEach(doc => {
@@ -511,10 +527,10 @@
                     const p = doc.data();
                     const category = p.category || 'web';
                     
-                    
+                    // Tech Tags
                     const tagsHtml = p.tags ? p.tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-dark-surface border border-dark-border text-xs text-gray-300 font-mono">${escapeHtml(t)}</span>`).join('') : '';
 
-                    
+                    // Image / Preview Box
                     let previewBox = '';
                     if (p.imageUrl && p.imageUrl.trim() !== '') {
                         previewBox = `<img src="${escapeHtml(p.imageUrl)}" alt="${escapeHtml(p.title)}" class="w-full h-full object-cover">`;
@@ -525,7 +541,7 @@
                         `;
                     }
 
-                    
+                    // Category Color Badge
                     let categoryBadgeClass = 'bg-brand-red/20 border-brand-red/40 text-brand-crimson';
                     if (category === 'web') categoryBadgeClass = 'bg-blue-500/20 border-blue-500/40 text-blue-400';
                     if (category === 'utility') categoryBadgeClass = 'bg-purple-500/20 border-purple-500/40 text-purple-400';
@@ -548,8 +564,8 @@
                             </div>
                         </div>
                         <div class="p-6 pt-0 flex items-center justify-between gap-4 border-t border-dark-border/40 mt-4">
-                            <a href="${escapeHtml(p.url || '#')}" ${p.url ? 'target="_blank"' : ''} class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">LAUNCH APP &rarr;</a>
-                            ${p.sourceUrl ? `<a href="${escapeHtml(p.sourceUrl)}" target="_blank" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>` : ''}
+                            <a href="${escapeHtml(p.url || 'javascript:void(0);')}" ${p.url ? 'target="_blank"' : ''} onclick="playSound('launch-click.wav')" class="text-xs font-bold text-brand-crimson hover:underline flex items-center gap-1 pt-4">LAUNCH APP &rarr;</a>
+                            ${p.sourceUrl ? `<a href="${escapeHtml(p.sourceUrl)}" target="_blank" onclick="playSound('source-click.wav')" class="text-xs font-bold text-gray-400 hover:text-white flex items-center gap-1 pt-4">SOURCE CODE</a>` : ''}
                         </div>
                     `;
 
@@ -589,7 +605,11 @@
                 if (data.contactHeading) document.getElementById('contact-heading').textContent = data.contactHeading;
                 if (data.contactSubtext) document.getElementById('contact-subtext').textContent = data.contactSubtext;
                 if (data.email) document.getElementById('contact-email-btn').href = 'mailto:' + data.email;
-                if (data.githubUrl) document.getElementById('contact-github-btn').href = data.githubUrl;
+                if (data.githubUrl) {
+                    const githubBtn = document.getElementById('contact-github-btn');
+                    githubBtn.href = data.githubUrl;
+                    githubBtn.setAttribute('target', '_blank');
+                }
             }
         });
 
